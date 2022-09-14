@@ -10,6 +10,13 @@ const Register:React.FC = () => {
             <div className="overflow-hidden shadow sm:rounded-md">
               <div className="bg-white px-4 py-5 sm:p-6">
                 <div className="grid grid-cols-6 gap-6">
+                  
+                  <Input name="first-name" label="First Name" />
+                  <Input name="last-name" label="Last name" />
+                  <Input name="email" label="Email" className="col-span-6 sm:col-span-6" />
+                  <Input name="Password" label="Password" className="col-span-6 sm:col-span-3" type="password" />
+                  <Input name="conf-Password" label="Confirm Password" className="col-span-6 sm:col-span-3" type="password" />
+
                 </div>
               </div>
               <div className="bg-gray-50 px-4 py-3 text-right sm:px-6">
