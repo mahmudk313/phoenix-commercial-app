@@ -33,8 +33,8 @@ const RegisterForm: React.FC = () => {
 
                             <Input name="name" label="First Name" />
                             <Input name="lastName" label="Last name" />
-                            <Input name="email" label="Email" className="col-span-6 sm:col-span-6" />
-                            <Input name="Password" label="Password" className="col-span-6 sm:col-span-3" type="password" />
+                            <Input name="email" label="Email" type="email" className="col-span-6 sm:col-span-6" />
+                            <Input name="password" label="Password" className="col-span-6 sm:col-span-3" type="password" />
 
                         </div>
                     </div>
