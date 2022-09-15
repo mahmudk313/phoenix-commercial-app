@@ -1,5 +1,5 @@
 import React from 'react'
-import RegisterForm from './registerForm';
+import RegisterForm from '../../../forms/auth/registerForm';
 
 const Register:React.FC = () => {
 
