@@ -1,5 +1,6 @@
 import { Form, FormikProps, withFormik } from 'formik'
 import Input from '../../components/global/input'
+import registerSchema from '../../schema/registerSchema'
 
 interface RegisterFromValues {
     name : string,
@@ -48,6 +49,7 @@ const RegisterForm = withFormik<RegisterFormProps, RegisterFromValues>({
             password : ""
         }
     },
+    validationSchema : registerSchema,
     handleSubmit : (values) => {
         console.log(values)
     }
