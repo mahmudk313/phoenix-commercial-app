@@ -2,14 +2,14 @@ import { Form, FormikProps, withFormik } from 'formik'
 import Input from '../../components/global/input'
 import registerSchema from '../../schema/registerSchema'
 
-interface RegisterFromValues {
+interface RegisterFormValues {
     name : string,
     lastName : string,
     email : string,
     password : string
 }
 
-const InnerRegisterForm = (props : FormikProps<RegisterFromValues>) => {
+const InnerRegisterForm = (props : FormikProps<RegisterFormValues>) => {
     return (
         <Form action="#" method="POST">
             <div className="overflow-hidden shadow sm:rounded-md">
@@ -40,7 +40,7 @@ interface RegisterFormProps {
 
 }
 
-const RegisterForm = withFormik<RegisterFormProps, RegisterFromValues>({
+const RegisterForm = withFormik<RegisterFormProps, RegisterFormValues>({
     mapPropsToValues : props => {
         return {
             name : "",
