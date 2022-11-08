@@ -3,6 +3,7 @@ import { withFormik } from 'formik'
 
 import InnerRegisterForm from '../../components/auth/innerRegisterForm'
 import { RegisterFormValuesInterface } from '../../contracts/auth'
+import callApi from '../../helpers/callApi'
 import registerSchema from '../../schema/registerSchema'
 
 interface RegisterFormProps {
@@ -19,8 +20,9 @@ const RegisterForm = withFormik<RegisterFormProps, RegisterFormValuesInterface>(
         }
     },
     validationSchema : registerSchema,
-    handleSubmit : (values) => {
-        console.log(values)
+    handleSubmit : async (values) => {
+        const res = await callApi().post('/auth/register', values)
+        console.log(res)
     }
 })(InnerRegisterForm)
 
