@@ -1,4 +1,5 @@
 import { withFormik } from 'formik'
+import Router from 'next/router'
 
 
 import InnerRegisterForm from '../../components/auth/innerRegisterForm'
@@ -22,7 +23,9 @@ const RegisterForm = withFormik<RegisterFormProps, RegisterFormValuesInterface>(
     validationSchema : registerSchema,
     handleSubmit : async (values) => {
         const res = await callApi().post('/auth/register', values)
-        console.log(res)
+        if( res.status === 201) {
+            Router.push('/auth/login')
+        }
     }
 })(InnerRegisterForm)
 
