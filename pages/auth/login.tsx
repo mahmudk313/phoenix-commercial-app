@@ -1,8 +1,11 @@
 import { NextPage } from "next";
 import React from "react";
+import { useCookies } from "react-cookie";
 import LoginForm from "../../app/forms/auth/loginForm";
 
 const LogIn : NextPage = () => {
+    const [cookies, setCookie] = useCookies(['phoenix-token'])
+
     return(
         <>
             <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -24,7 +27,7 @@ const LogIn : NextPage = () => {
                         </p>
                     </div>
 
-                    <LoginForm />
+                    <LoginForm setCookie={setCookie} />
                     
                 </div>
             </div>

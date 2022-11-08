@@ -7,6 +7,7 @@ import InnerLoginForm from "../../components/auth/innerLoginForm";
 import callApi from "../../helpers/callApi";
 
 interface loginFormProps {
+    setCookie : any,
 }
 
 const LoginForm = withFormik<loginFormProps, LoginFormValuesInterface>({
@@ -16,9 +17,16 @@ const LoginForm = withFormik<loginFormProps, LoginFormValuesInterface>({
             password : ""
         }
     },
-    handleSubmit : async (values) => {
+    handleSubmit : async (values, { props }) => {
         const res = await callApi().post('auth/login', values)
-        console.log(res)
+        if (res.status === 200) {
+            props.setCookie('phoenix-token', res.data.token, {
+                'maxAge' : 3600 * 24 * 30,
+                'sameSite'  : 'lax',
+                'domain' : 'localhost',
+                'path' : '/'
+            })
+        }
     }
 })(InnerLoginForm)
 
