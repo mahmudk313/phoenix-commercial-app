@@ -4,6 +4,7 @@ import { Form, FormikProps, withFormik } from "formik";
 //Components
 import { LoginFormValuesInterface } from "../../contracts/auth";
 import InnerLoginForm from "../../components/auth/innerLoginForm";
+import callApi from "../../helpers/callApi";
 
 interface loginFormProps {
 }
@@ -15,8 +16,9 @@ const LoginForm = withFormik<loginFormProps, LoginFormValuesInterface>({
             password : ""
         }
     },
-    handleSubmit : (values) => {
-        console.log(values)
+    handleSubmit : async (values) => {
+        const res = await callApi().post('auth/login', values)
+        console.log(res)
     }
 })(InnerLoginForm)
 
