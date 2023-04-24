@@ -14,8 +14,7 @@ interface loginFormProps {
 const LoginForm = withFormik<loginFormProps, LoginFormValuesInterface>({
     mapPropsToValues : props => {
         return {
-            email : "",
-            password : ""
+            phone : 0,
         }
     },
     handleSubmit : async (values, { props , setFieldError }) => {
