@@ -6,6 +6,7 @@ import { LoginFormValuesInterface } from "../../contracts/auth";
 import InnerLoginForm from "../../components/auth/innerLoginForm";
 import callApi from "../../helpers/callApi";
 import ValidationError from "../../exceptions/validationError";
+import Router from "next/router";
 
 interface loginFormProps {
     setCookie : any,
@@ -27,6 +28,8 @@ const LoginForm = withFormik<loginFormProps, LoginFormValuesInterface>({
                     'domain' : 'localhost',
                     'path' : '/'
                 })
+
+                Router.push('/auth/verifyPhone')
             }
         }
         catch (error) {
