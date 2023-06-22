@@ -1,7 +1,7 @@
 export interface LoginFormValuesInterface {
     email?: string,
     password?: string,
-    phone ?: number
+    phone : number
 }
 
 export interface RegisterFormValuesInterface {

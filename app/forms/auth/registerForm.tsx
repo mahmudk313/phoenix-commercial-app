@@ -14,8 +14,8 @@ interface RegisterFormProps {
 const RegisterForm = withFormik<RegisterFormProps, RegisterFormValuesInterface>({
     mapPropsToValues : props => {
         return {
-            phone : 0,
-            
+            name : "",
+            phone : 0
         }
     },
     validationSchema : registerSchema,

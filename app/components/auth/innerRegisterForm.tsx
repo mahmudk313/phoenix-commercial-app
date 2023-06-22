@@ -9,7 +9,8 @@ const InnerRegisterForm = (props : FormikProps<RegisterFormValuesInterface>) => 
                 <div className="bg-white px-4 py-5 sm:p-6">
                     <div className="grid grid-cols-6 gap-6">
 
-                        <Input name="Phone" label="Phone" />
+                        <Input name="name" label="name" />
+                        <Input name="phone" label="phone" />
 
                     </div>
                 </div>
