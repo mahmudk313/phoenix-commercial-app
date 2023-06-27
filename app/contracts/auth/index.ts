@@ -14,4 +14,5 @@ export interface RegisterFormValuesInterface {
 
 export interface VerifyPhoneFormValuesInterface {
     code : number,
+    token : any
 }
