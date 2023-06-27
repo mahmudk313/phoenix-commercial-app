@@ -1,6 +1,7 @@
 import { NextPage } from "next";
 import React from "react";
 import { useCookies } from "react-cookie";
+import VerifyPhoneForm from "../../app/forms/auth/verifyPhoneForm";
 
 const VerifyPhone : NextPage = () => {
     const [cookies, setCookie] = useCookies(['phoenix-token'])
@@ -21,7 +22,7 @@ const VerifyPhone : NextPage = () => {
                         
                     </div>
 
-                    
+                    <VerifyPhoneForm setCookie={setCookie} cookies={cookies} />
                 </div>
             </div>
         </>
