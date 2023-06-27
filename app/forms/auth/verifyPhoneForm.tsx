@@ -7,10 +7,10 @@ import callApi from "../../helpers/callApi";
 import { VerifyPhoneFormValuesInterface } from "../../contracts/auth";
 import Router from "next/router";
 import ValidationError from "../../exceptions/validationError";
-import innerVerifyPhoneForm from "../../components/auth/innerVerifyPhoneForm";
+import InnerVerifyPhoneForm from "../../components/auth/innerVerifyPhoneForm";
 
 interface verifyPhoneFormProps {
-    setCookies : any,
+    setCookie : any,
     cookies : any
 }
 
@@ -25,7 +25,7 @@ const VerifyPhoneForm = withFormik<verifyPhoneFormProps, VerifyPhoneFormValuesIn
         try {
             const res = await callApi().post('auth/verify-phone', values)
             if (res.status === 200) {
-                props.setCookies("phoenix-token", res.data.token, {
+                props.setCookie("phoenix-token", res.data.token, {
                     'max-age' : 3600 * 24 * 30,
                     'sameSite' : 'lax',
                     'domain' : 'localhost',
@@ -40,6 +40,6 @@ const VerifyPhoneForm = withFormik<verifyPhoneFormProps, VerifyPhoneFormValuesIn
             }
         }
     }
-})(innerVerifyPhoneForm)
+})(InnerVerifyPhoneForm)
 
 export default VerifyPhoneForm;
