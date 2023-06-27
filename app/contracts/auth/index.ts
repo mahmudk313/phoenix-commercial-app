@@ -11,3 +11,7 @@ export interface RegisterFormValuesInterface {
     password ?: string,
     phone ?: number
 }
+
+export interface VerifyPhoneFormValuesInterface {
+    code : number,
+}
