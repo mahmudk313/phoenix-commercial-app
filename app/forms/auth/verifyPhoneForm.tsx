@@ -11,6 +11,12 @@ interface verifyPhoneFormProps {
 }
 
 const VerifyPhoneForm = withFormik<verifyPhoneFormProps, VerifyPhoneFormValuesInterface>({
+    mapPropsToValues : props => {
+        return {
+            token : props.cookies["phoenix-token"],
+            code : 0
+        }
+    },
 })(innerVerifyPhoneForm)
 
 export default VerifyPhoneForm;
