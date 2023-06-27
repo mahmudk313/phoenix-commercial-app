@@ -23,9 +23,9 @@ const VerifyPhoneForm = withFormik<verifyPhoneFormProps, VerifyPhoneFormValuesIn
     },
     handleSubmit : async (values, { props , setFieldError } ) => {
         try {
-            const res = await callApi().post('auth/verify-phone', values)
+            const res = await callApi().post('auth/login/verify-phone', values)
             if (res.status === 200) {
-                props.setCookie("phoenix-token", res.data.token, {
+                props.setCookie('phoenix-token', res.data.user.token, {
                     'max-age' : 3600 * 24 * 30,
                     'sameSite' : 'lax',
                     'domain' : 'localhost',
